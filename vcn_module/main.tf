@@ -21,7 +21,7 @@ resource "oci_core_nat_gateway" "NATGW" {
 data "oci_core_services" "wind_services" {
 }
 
-resource "oci_core_service_gateway" "test_service_gateway" {
+resource "oci_core_service_gateway" "service_gateway" {
   
     compartment_id = var.compartment_id
     services {

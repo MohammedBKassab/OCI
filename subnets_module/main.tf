@@ -32,7 +32,7 @@ resource "oci_core_route_table" "pub_RT" {
 resource "oci_core_subnet" "public_subnet1" {
   compartment_id    = var.compartment_id
   vcn_id            = var.vcn_id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 1)
+  cidr_block        = cidrsubnet(var.vcn_cidr, 8, 1)
   display_name      = var.display_name[0]
   route_table_id    = oci_core_route_table.pub_RT.id
   prohibit_public_ip_on_vnic = false
@@ -41,7 +41,7 @@ resource "oci_core_subnet" "public_subnet1" {
 resource "oci_core_subnet" "public_subnet2" {
   compartment_id    = var.compartment_id
   vcn_id            = var.vcn_id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 2)
+  cidr_block        = cidrsubnet(var.vcn_cidr, 8, 2)
   display_name      = var.display_name[1]
   route_table_id    = oci_core_route_table.pub_RT.id
   prohibit_public_ip_on_vnic = false
@@ -50,7 +50,7 @@ resource "oci_core_subnet" "public_subnet2" {
 resource "oci_core_subnet" "private_subnet1" {
   compartment_id    = var.compartment_id
   vcn_id            = var.vcn_id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 3)
+  cidr_block        = cidrsubnet(var.vcn_cidr, 8, 3)
   display_name      = var.display_name[2]
   route_table_id    = oci_core_route_table.priv_RT.id
   prohibit_public_ip_on_vnic = true
@@ -59,7 +59,7 @@ resource "oci_core_subnet" "private_subnet1" {
 resource "oci_core_subnet" "private_subnet2" {
   compartment_id    = var.compartment_id
   vcn_id            = var.vcn_id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 4)
+  cidr_block        = cidrsubnet(var.vcn_cidr, 8, 4)
   display_name      = var.display_name[3]
   route_table_id    = oci_core_route_table.priv_RT.id
   prohibit_public_ip_on_vnic = true

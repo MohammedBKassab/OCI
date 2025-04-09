@@ -28,9 +28,9 @@ resource "oci_load_balancer_backend_set" "lb_backend_set" {
 }
 
 resource "oci_load_balancer_backend" "lb_backend" {
-  for_each = var.backend_ips
   load_balancer_id = oci_load_balancer.public_lb.id
+  for_each = var.backend_ips
   backendset_name  = oci_load_balancer_backend_set.lb_backend_set.name
-  ip_address       = each.value
-  port             = 80
+  ip_address       = each.value.ip_address
+  port             = var.port
 }

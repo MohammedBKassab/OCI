@@ -18,8 +18,6 @@ resource "oci_core_instance" "instances" {
   compartment_id      = var.compartment_id
   display_name        = each.value
   shape               = var.shape
-  availability_domain = var.availability_domain
-
   source_details {
     source_type = "image"
     source_id   = oci_core_images.ubuntu_latest.images.0.id
